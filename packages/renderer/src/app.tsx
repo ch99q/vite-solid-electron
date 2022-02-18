@@ -1,4 +1,4 @@
-import { Component, For } from "solid-js";
+import { Component } from "solid-js";
 import { Link, useRoutes, useLocation } from "solid-app-router";
 
 import { routes } from "./routes";
@@ -6,10 +6,6 @@ import { routes } from "./routes";
 const App: Component = () => {
   const location = useLocation();
   const Route = useRoutes(routes);
-
-  const fs = window.fs;
-
-  const files = fs.readdirSync("./");
 
   return (
     <>
@@ -44,16 +40,6 @@ const App: Component = () => {
       </nav>
 
       <main>
-        <ul>
-          <For each={files}>
-            {(file) => (
-              <li class="py-2 px-4">
-                <p class="text-sm">{file}</p>
-              </li>
-            )}
-          </For>
-        </ul>
-
         <Route />
       </main>
     </>
